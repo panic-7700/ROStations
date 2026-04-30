@@ -1164,7 +1164,8 @@ namespace ROStations
         /// <summary>
         /// Calls the generic ROT procedural drag-cube updating routines.  Will update the drag cubes for whatever the current model state is.
         /// </summary>
-        private void UpdateDragCubes() => ROLModInterop.OnPartGeometryUpdate(part, true);
+        private string ShapeKey => $"ROStations|{coreModule}|{upperModule}|{lowerModule}|{topModule}|{bottomModule}|{bodyRadialModule}|{upperRadialModule}|{lowerRadialModule}|{currentHabitat}|{currentVScale}|{currentDiameter}";
+        private void UpdateDragCubes() => ROLModInterop.OnPartGeometryUpdate(part, ShapeKey);
 
         private float GetPartTopY()
         {
